@@ -1,9 +1,6 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, class_validators
 
 
 class Message(BaseModel):
     message: str
 
-
-class Html(BaseModel):
-    h1: str

@@ -17,4 +17,13 @@ def test_read_ola_deve_retornar_ola_mundo():
     client = TestClient(app)
     response = client.get('/ola')
     assert response.status_code == HTTPStatus.OK
-    assert print(response.text)
+    texto = """
+    <html>
+      <head>
+        <title> Nosso olá mundo!</title>
+      </head>
+      <body>
+        <h1> Olá Mundo </h1>
+      </body>
+    </html>"""
+    assert response.text == texto

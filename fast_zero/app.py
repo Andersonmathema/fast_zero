@@ -3,7 +3,7 @@ from http import HTTPStatus
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from fast_zero.schemas import Message, Html
+from fast_zero.schemas import Message
 
 app = FastAPI()
 
