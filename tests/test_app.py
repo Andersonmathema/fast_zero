@@ -57,11 +57,28 @@ def test_update_user(client):
         'id': 1,
     }
 
+# Exercício aula 3
+def test_update_not_found(client):
+    response = client.put(
+        '/users/99999999',  # Não existe
+        json={
+            'password': '123',
+            'username': 'testusername2',
+            'email': 'test@test.com',
+        },
+    )
+    assert response.status_code == HTTPStatus.NOT_FOUND
+
 
 def test_delete_user(client):
     response = client.delete('/users/1')
 
     assert response.json() == {'message': 'User deleted'}
+
+# Exercício aula 3
+def test_deleted_user_not_found(client):
+    response = client.delete('/users/999999999')
+    assert response.status_code == HTTPStatus.NOT_FOUND
 
 
 # Exercicio Aula 02
