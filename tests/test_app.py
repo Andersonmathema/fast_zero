@@ -72,6 +72,25 @@ def test_delete_user(client):
     }
 
 
+def test_update_user_not_found(client):
+    response = client.put(
+        '/users/999',
+        json={
+            'username': 'bob',
+            'email': 'bob@example.com',
+            'password': 'secret',
+        },
+    )
+    assert response.status_code == HTTPStatus.NOT_FOUND
+    assert response.json() == {'detail': 'User not found!'}
+
+
+def test_delete_user_not_found(client):
+    response = client.delete('/users/999')
+    assert response.status_code == HTTPStatus.NOT_FOUND
+    assert response.json() == {'detail': 'User not found!'}
+
+
 def test_exe1_deve_retornar_ola_mundo(client):
 
     response = client.get('/exe1')
