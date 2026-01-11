@@ -42,6 +42,7 @@ def test_read_users(client):
         ]
     }
 
+
 # Exe2, ignorar
 def test_read_user(client):
     response = client.get('/users/1')
@@ -52,7 +53,10 @@ def test_read_user(client):
         'email': 'alice@example.com',
         'username': 'alice',
     }
+
+
 # Exe2, ignorar acima
+
 
 def test_update_user(client):
     response = client.put(
